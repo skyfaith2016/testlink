@@ -7,7 +7,7 @@ RUN apt-get update -yqq && \
 
 RUN wget -q http://www.topca.cn/testlink-1.9.9.tar.gz &&\
     tar zxvf testlink-1.9.9.tar.gz && \
-    mv testlink-1.9.9 /var/www/html/testlink && \
+    mv testlink /var/www/html/testlink && \
     rm testlink-1.9.9.tar.gz
 
 RUN echo "max_execution_time=3000" >> /etc/php5/apache2/php.ini && \
