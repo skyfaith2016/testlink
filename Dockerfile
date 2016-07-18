@@ -1,6 +1,6 @@
-FROM ubuntu
+FROM ubuntu:15.10
 MAINTAINER skyfaith@tocpa.cn
-RUN apt-get update && \
+RUN apt-get update -yqq && \
     apt-get install -yqq apache2 php5 wget php5-mysql
 RUN wget -q http://sourceforge.net/projects/testlink/files/TestLink%201.9/TestLink%201.9.9/testlink-1.9.9.tar.gz/download -O testlink-1.9.9.tar.gz &&\
     tar zxvf testlink-1.9.9.tar.gz && \
