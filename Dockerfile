@@ -17,6 +17,8 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 RUN mkdir -p $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_LOG_DIR
 RUN mkdir -p /var/testlink/logs /var/testlink/upload_area
 ADD config_db.inc.php /var/www/html/testlink
+RUN sed -i 's/\/html/\/html\/testlink/g' /etc/apache2/sites-enabled/000-default.conf
+RUN sed -i "s/config_check_warning_mode = 'FILE'/config_check_warning_mode = 'SILENT'/g" /var/www/html/testlink/config.inc.php
 RUN chmod 777 -R /var/www/html/testlink && \
     chmod 777 -R /var/testlink/logs && \
     chmod 777 -R /var/testlink/upload_area
